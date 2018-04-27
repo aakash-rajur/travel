@@ -1,0 +1,29 @@
+.persistent.city-info {
+  overflow-y: auto;
+  .explore {
+    background: #FF5722;
+    color: white;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    position: sticky;
+  }
+}
+
+.description-wrapper {
+  padding: 24px;
+  .big {
+    float: left;
+    width: 0.7em;
+    font-size: 350%;
+    line-height: 80%;
+    font-family: algerian, courier;
+  }
+  .emphasis {
+    border-left: 4px #FF5722 solid;
+    padding-left: 32px;
+  }
+}

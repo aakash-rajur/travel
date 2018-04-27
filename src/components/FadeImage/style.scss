@@ -1,0 +1,83 @@
+.city-preview {
+  .preview.wrapper {
+    $anim-duration: 250ms;
+    $image-translation: 10px;
+
+    height: 100%;
+    position: relative;
+    .image {
+      position: absolute;
+      width: 100%;
+      height: calc(100% + 4 * #{$image-translation});
+      top: -$image-translation;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .image.next {
+      display: none;
+    }
+
+    @keyframes image-up-out {
+      from {
+        opacity: 1;
+        transform: translateY(0)
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-$image-translation)
+      }
+    }
+
+    @keyframes image-up-in {
+      from {
+        opacity: 0;
+        transform: translateY($image-translation)
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes image-down-out {
+      from {
+        opacity: 1;
+        transform: translateY(0)
+      }
+      to {
+        opacity: 0;
+        transform: translateY($image-translation)
+      }
+    }
+
+    @keyframes image-down-in {
+      from {
+        opacity: 0;
+        transform: translateY(-$image-translation)
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .image.scroll-up.leaving {
+      animation: image-up-out $anim-duration both;
+    }
+
+    .image.scroll-up.entering {
+      display: initial;
+      animation: image-up-in $anim-duration both;
+    }
+
+    .image.scroll-down.leaving {
+      animation: image-down-out $anim-duration both;
+    }
+
+    .image.scroll-down.entering {
+      display: initial;
+      animation: image-down-in $anim-duration both;
+    }
+  }
+}

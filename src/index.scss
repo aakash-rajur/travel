@@ -1,0 +1,21 @@
+html, body {
+  height: 100vh;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  overscroll-behavior-y: contain;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  #root {
+    height: 100%;
+  }
+}
+
+::-webkit-scrollbar
+{
+  width: 0;
+  background-color: #F5F5F5;
+}
