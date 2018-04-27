@@ -1,80 +1,55 @@
 .city-preview .preview.wrapper {
-    height: 100%;
-    position: relative;
-}
-
-.city-preview .preview.wrapper .image {
+  height: 100%;
+  position: relative; }
+  .city-preview .preview.wrapper .image {
     position: absolute;
     width: 100%;
     height: calc(100% + 4 * 10px);
     top: -10px;
     object-fit: cover;
     object-position: center;
-    z-index: 0;
-}
-
-.city-preview .preview.wrapper .image.next {
-    display: none;
-}
+    z-index: 0; }
+  .city-preview .preview.wrapper .image.next {
+    display: none; }
 
 @keyframes image-up-out {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-}
+  from {
+    opacity: 1;
+    transform: translateY(0); }
+  to {
+    opacity: 0;
+    transform: translateY(-10px); } }
 
 @keyframes image-up-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+  from {
+    opacity: 0;
+    transform: translateY(10px); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
 
 @keyframes image-down-out {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-}
+  from {
+    opacity: 1;
+    transform: translateY(0); }
+  to {
+    opacity: 0;
+    transform: translateY(10px); } }
 
 @keyframes image-down-in {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.city-preview .preview.wrapper .image.scroll-up.leaving {
-    animation: image-up-out 250ms both;
-}
-
-.city-preview .preview.wrapper .image.scroll-up.entering {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
+  .city-preview .preview.wrapper .image.scroll-up.leaving {
+    animation: image-up-out 250ms both; }
+  .city-preview .preview.wrapper .image.scroll-up.entering {
     display: initial;
-    animation: image-up-in 250ms both;
-}
-
-.city-preview .preview.wrapper .image.scroll-down.leaving {
-    animation: image-down-out 250ms both;
-}
-
-.city-preview .preview.wrapper .image.scroll-down.entering {
+    animation: image-up-in 250ms both; }
+  .city-preview .preview.wrapper .image.scroll-down.leaving {
+    animation: image-down-out 250ms both; }
+  .city-preview .preview.wrapper .image.scroll-down.entering {
     display: initial;
-    animation: image-down-in 250ms both;
-}
+    animation: image-down-in 250ms both; }

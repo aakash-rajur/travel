@@ -1,81 +1,56 @@
 #root {
-    display: grid;
-    grid-template: 1fr/1fr 40%;
-    position: relative;
-}
-
-#root .city-preview {
+  display: grid;
+  grid-template: 1fr/1fr 40%;
+  position: relative; }
+  #root .city-preview {
     position: relative;
     display: grid;
-    grid-template: 25% 25% 50%/1fr;
-}
-
-#root .city-preview .preview {
-    grid-row: 1/span 3;
-}
-
-#root .city-preview .city-no {
-    grid-row: 1/span 1;
-    align-self: end;
-}
-
-#root .city-preview .vertical {
-    grid-row: 2/span 1;
-    width: 2px;
-    background: white;
-    justify-self: center;
-    margin: 20px 0;
-}
-
-#root .city-preview .pagination {
-    grid-row: 2/span 1;
-    grid-column: 1;
-    justify-self: end;
-    align-self: center;
+    grid-template: 25% 25% 50%/1fr; }
+    #root .city-preview .preview {
+      grid-row: 1/span 3; }
+    #root .city-preview .city-no {
+      grid-row: 1/span 1;
+      align-self: end; }
+    #root .city-preview .vertical {
+      grid-row: 2/span 1;
+      width: 2px;
+      background: white;
+      justify-self: center;
+      margin: 20px 0; }
+    #root .city-preview .pagination {
+      grid-row: 2/span 1;
+      grid-column: 1;
+      justify-self: end;
+      align-self: center;
+      z-index: 3;
+      display: grid;
+      grid-template-rows: repeat(3, 20px);
+      justify-items: center;
+      align-items: center;
+      grid-gap: 8px;
+      width: 28px; }
+      #root .city-preview .pagination .circle {
+        text-align: center;
+        background: white;
+        opacity: 0.4;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px; }
+      #root .city-preview .pagination .circle.active {
+        opacity: 1; }
+    #root .city-preview .title {
+      grid-row: 3/span 1;
+      font-size: 50px; }
+    #root .city-preview .preview, #root .city-preview .city-no, #root .city-preview .vertical, #root .city-preview .title {
+      grid-column: 1;
+      color: white; }
+    #root .city-preview .city-no, #root .city-preview .vertical, #root .city-preview .title {
+      text-align: center;
+      z-index: 3; }
+  #root .city-info {
     z-index: 3;
-    display: grid;
-    grid-template-rows: repeat(3, 20px);
-    justify-items: center;
-    align-items: center;
-    grid-gap: 8px;
-    width: 28px;
-}
-
-#root .city-preview .pagination .circle {
-    text-align: center;
-    background: white;
-    opacity: 0.4;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-}
-
-#root .city-preview .pagination .circle.active {
-    opacity: 1;
-}
-
-#root .city-preview .title {
-    grid-row: 3/span 1;
-    font-size: 50px;
-}
-
-#root .city-preview .preview, #root .city-preview .city-no, #root .city-preview .vertical, #root .city-preview .title {
-    grid-column: 1;
-    color: white;
-}
-
-#root .city-preview .city-no, #root .city-preview .vertical, #root .city-preview .title {
-    text-align: center;
-    z-index: 3;
-}
-
-#root .city-info {
-    z-index: 3;
-    background: white;
-}
+    background: white; }
 
 @media screen and (max-width: 600px) {
-    #root {
-        grid-template: 1fr/1fr;
-    }
-}
+  #root {
+    grid-template: 1fr/1fr; } }
