@@ -25,7 +25,7 @@ class SwipeDetector extends Component {
 		onSwipeRight: PropTypes.func,
 		threshold: PropTypes.number
 	};
-
+	
 	constructor(props) {
 		super(props);
 		this.onTouchStart = this.onTouchStart.bind(this);
@@ -33,7 +33,7 @@ class SwipeDetector extends Component {
 		this.onTouchEnd = this.onTouchEnd.bind(this);
 		this.start = null;
 	}
-
+	
 	render() {
 		return (
 			<div {...sanitize(this.props)}
@@ -44,16 +44,16 @@ class SwipeDetector extends Component {
 			</div>
 		);
 	}
-
+	
 	onTouchStart({changedTouches: [touch]}) {
 		let {clientX: x, clientY: y} = touch;
 		this.start = {x, y};
 	}
-
+	
 	onTouchMove(e) {
 		//console.log(e);
 	}
-
+	
 	onTouchEnd({changedTouches: [touch]}) {
 		if (!this.start) return;
 		let {clientX: x, clientY: y} = touch,

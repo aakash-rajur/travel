@@ -1,53 +1,78 @@
 .city-preview .title.wrapper {
-  position: relative; }
-  .city-preview .title.wrapper .text {
+    position: relative;
+}
+
+.city-preview .title.wrapper .text {
     position: absolute;
     z-index: 3;
     width: 100%;
     top: 0;
     left: 0;
-    font-weight: bold; }
-  .city-preview .title.wrapper .text.next {
-    display: none; }
+    font-weight: bold;
+}
+
+.city-preview .title.wrapper .text.next {
+    display: none;
+}
 
 @keyframes text-up-out {
-  from {
-    opacity: 1;
-    transform: translateY(0); }
-  to {
-    opacity: 0;
-    transform: translateY(-50px); } }
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
 
 @keyframes text-up-in {
-  from {
-    opacity: 0;
-    transform: translateY(50px); }
-  to {
-    opacity: 1;
-    transform: translateY(0); } }
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @keyframes text-down-out {
-  from {
-    opacity: 1;
-    transform: translateY(0); }
-  to {
-    opacity: 0;
-    transform: translateY(50px); } }
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
 
 @keyframes text-down-in {
-  from {
-    opacity: 0;
-    transform: translateY(-50px); }
-  to {
-    opacity: 1;
-    transform: translateY(0); } }
-  .city-preview .title.wrapper .text.scroll-up.leaving {
-    animation: text-up-out 250ms both; }
-  .city-preview .title.wrapper .text.scroll-up.entering {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.city-preview .title.wrapper .text.scroll-up.leaving {
+    animation: text-up-out 250ms both;
+}
+
+.city-preview .title.wrapper .text.scroll-up.entering {
     display: initial;
-    animation: text-up-in 250ms both; }
-  .city-preview .title.wrapper .text.scroll-down.leaving {
-    animation: text-down-out 250ms both; }
-  .city-preview .title.wrapper .text.scroll-down.entering {
+    animation: text-up-in 250ms both;
+}
+
+.city-preview .title.wrapper .text.scroll-down.leaving {
+    animation: text-down-out 250ms both;
+}
+
+.city-preview .title.wrapper .text.scroll-down.entering {
     display: initial;
-    animation: text-down-in 250ms both; }
+    animation: text-down-in 250ms both;
+}

@@ -11,7 +11,7 @@ class FadeText extends Component {
 		forward: PropTypes.bool,
 		duration: PropTypes.number
 	};
-
+	
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -21,7 +21,7 @@ class FadeText extends Component {
 			text: props.children
 		};
 	}
-
+	
 	async componentDidUpdate(prevProps) {
 		if (prevProps.children !== this.props.children) {
 			let setState = setStatePromise(this),
@@ -43,7 +43,7 @@ class FadeText extends Component {
 			await setState({prev: text});
 		}
 	}
-
+	
 	render() {
 		return (
 			<div className={`${this.props.className} wrapper`}>

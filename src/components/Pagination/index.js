@@ -10,24 +10,24 @@ class Pagination extends Component {
 		index: PropTypes.number,
 		className: PropTypes.string
 	};
-
+	
 	static defaultProps = {
 		length: 1,
 		index: 0
 	};
-
+	
 	constructor(props) {
 		super(props);
 		this.state = {active: props.index};
 	}
-
+	
 	async componentDidUpdate(prevProps) {
 		if (prevProps.index !== this.props.index) {
 			let {index} = this.props;
 			this.setState({active: index});
 		}
 	}
-
+	
 	render() {
 		let {
 			length,

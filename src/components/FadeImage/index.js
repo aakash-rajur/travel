@@ -13,10 +13,10 @@ class FadeImage extends Component {
 		duration: PropTypes.number,
 		onScroll: PropTypes.func
 	};
-
+	
 	constructor(props) {
 		super(props);
-
+		
 		this.state = {
 			prevAnim: [],
 			nextAnim: [],
@@ -24,7 +24,7 @@ class FadeImage extends Component {
 			src: props.src
 		};
 	}
-
+	
 	async componentDidUpdate(prevProps) {
 		if (prevProps.src !== this.props.src) {
 			let setState = setStatePromise(this),
@@ -48,7 +48,7 @@ class FadeImage extends Component {
 			onScroll && onScroll(SCROLL_END);
 		}
 	}
-
+	
 	render() {
 		return (
 			<div className={`${this.props.className} wrapper`}>

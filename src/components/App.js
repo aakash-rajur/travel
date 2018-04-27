@@ -11,11 +11,11 @@ import PersistentInfo from './PersistentInfo';
 import SwipeDetector from "./SwipeDetector";
 
 class App extends Component {
-
+	
 	static propTypes = {
 		source: PropTypes.arrayOf(PropTypes.object)
 	};
-
+	
 	constructor(props) {
 		super(props);
 		this.onResize = this.onResize.bind(this);
@@ -27,15 +27,15 @@ class App extends Component {
 		};
 		this.scrollState = SCROLL_END;
 	}
-
+	
 	componentDidMount() {
 		window.addEventListener('resize', this.onResize);
 	}
-
+	
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.onResize);
 	}
-
+	
 	render() {
 		let {source} = this.props,
 			page = source ? source[this.state.index] : null;
@@ -69,12 +69,12 @@ class App extends Component {
 			</Fragment>
 		);
 	}
-
+	
 	onResize() {
 		let {persist: prev} = this.state, persist = window.innerWidth > 600;
 		prev !== persist && (this.setState({persist}));
 	}
-
+	
 	onScroll({deltaY}) {
 		if (this.scrollState !== SCROLL_END) return;
 		let {index} = this.state, {source = []} = this.props,

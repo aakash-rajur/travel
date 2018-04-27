@@ -10,7 +10,7 @@ class BottomSheetInfo extends Component {
 		emphasis: PropTypes.string,
 		duration: PropTypes.number
 	};
-
+	
 	constructor(props) {
 		super(props);
 		this.onShowInfo = this.onShowInfo.bind(this);
@@ -19,7 +19,7 @@ class BottomSheetInfo extends Component {
 			animations: []
 		};
 	}
-
+	
 	render() {
 		let {
 			description,
@@ -63,14 +63,14 @@ class BottomSheetInfo extends Component {
 			</div>
 		);
 	}
-
+	
 	async onShowInfo() {
 		await animate(this, 'animations', [{
 			animation: 'slide-up',
 			duration: 1400
 		}]);
 	}
-
+	
 	async onHideInfo() {
 		await animate(this, 'animations', [{
 			animation: 'slide-down',
