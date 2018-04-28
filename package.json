@@ -2,6 +2,7 @@
   "name": "travel",
   "version": "0.1.0",
   "private": true,
+  "repository": "aakashRajur/travel",
   "homepage": "https://aakashrajur.github.io/travel",
   "dependencies": {
     "node-sass-chokidar": "^1.2.2",
@@ -22,7 +23,7 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "serve": "npm run build && serve -s build",
+    "serve": "npm run build && serve build",
     "deploy": "npm run build && gh-pages -d build"
   },
   "devDependencies": {
