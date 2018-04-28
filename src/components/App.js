@@ -46,9 +46,10 @@ class App extends Component {
 			{
 				location: {
 					pathname: nextPath,
-					state: {forward = true}
+					state = {}
 				}, source
 			} = this.props,
+			{forward = true} = state,
 			prevIndex = source.findIndex(({path}) => path === prevPath),
 			nextIndex = source.findIndex(({path}) => path === nextPath);
 		prevIndex !== nextIndex && this.setState({path: nextPath, forward})
