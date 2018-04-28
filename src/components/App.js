@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import React, {Component, Fragment} from 'react';
-import {SCROLL_END} from "../utils/constants";
+import {withRouter} from "react-router";
+import {Redirect, Route, Switch} from 'react-router-dom';
+import {CITY, NEW_YORK, ROOT, ROOT_TRAVEL, SCROLL_END} from "../utils/constants";
 
 import './App.css';
 import BottomSheetInfo from "./BottomSheetInfo";
@@ -13,15 +15,18 @@ import SwipeDetector from "./SwipeDetector";
 class App extends Component {
 	
 	static propTypes = {
-		source: PropTypes.arrayOf(PropTypes.object)
+		source: PropTypes.arrayOf(PropTypes.object),
+		history: PropTypes.object,
+		location: PropTypes.object
 	};
 	
 	constructor(props) {
 		super(props);
 		this.onResize = this.onResize.bind(this);
 		this.onScroll = this.onScroll.bind(this);
+		this.renderCity = this.renderCity.bind(this);
 		this.state = {
-			index: 0,
+			path: props.location.pathname,
 			forward: true,
 			persist: window.innerWidth > 600
 		};
@@ -36,9 +41,54 @@ class App extends Component {
 		window.removeEventListener('resize', this.onResize);
 	}
 	
+	componentDidUpdate(prevProps) {
+		let {location: {pathname: prevPath}} = prevProps,
+			{
+				location: {
+					pathname: nextPath,
+					state: {forward = true}
+				}, source
+			} = this.props,
+			prevIndex = source.findIndex(({path}) => path === prevPath),
+			nextIndex = source.findIndex(({path}) => path === nextPath);
+		prevIndex !== nextIndex && this.setState({path: nextPath, forward})
+	}
+	
 	render() {
+		return (
+			<Switch>
+				<Redirect exact={true} from={ROOT} to={NEW_YORK}/>
+				<Redirect exact={true} from={ROOT_TRAVEL} to={NEW_YORK}/>
+				<Route exact={true} path={CITY} component={this.renderCity}/>
+			</Switch>
+		);
+	}
+	
+	onResize() {
+		let {persist: prev} = this.state, persist = window.innerWidth > 600;
+		prev !== persist && (this.setState({persist}));
+	}
+	
+	onScroll({deltaY}) {
+		if (this.scrollState !== SCROLL_END) return;
+		let {
+			source = [],
+			location: {pathname},
+			history
+		} = this.props;
+		if (!source.length) return;
+		let index = source.findIndex(({path}) => path === pathname),
+			forward = deltaY > 0;
+		history.push(source[forward ? (index + 1) % source.length :
+			index === 0 ? source.length - 1 : index - 1].path,
+			{forward});
+	}
+	
+	renderCity() {
 		let {source} = this.props,
-			page = source ? source[this.state.index] : null;
+			index = source.findIndex(({path}) => path === this.state.path);
+		if (index < 0) return null;
+		let page = source ? source[index] : null;
 		return (
 			<Fragment>
 				<SwipeDetector
@@ -55,7 +105,7 @@ class App extends Component {
 						onScroll={scrollState => this.scrollState = scrollState}/>
 					<div className="city-no">{`No. ${page.no}`}</div>
 					<div className="vertical">&nbsp;</div>
-					<Pagination length={3} index={this.state.index}/>
+					<Pagination length={3} index={index}/>
 					<FadeText
 						className='title'
 						forward={this.state.forward}
@@ -69,19 +119,6 @@ class App extends Component {
 			</Fragment>
 		);
 	}
-	
-	onResize() {
-		let {persist: prev} = this.state, persist = window.innerWidth > 600;
-		prev !== persist && (this.setState({persist}));
-	}
-	
-	onScroll({deltaY}) {
-		if (this.scrollState !== SCROLL_END) return;
-		let {index} = this.state, {source = []} = this.props,
-			forward = deltaY > 0;
-		index = deltaY > 0 ? (index + 1) % source.length : index === 0 ? source.length - 1 : index - 1;
-		this.setState({index, forward});
-	}
 }
 
-export default App;
+export default withRouter(App);

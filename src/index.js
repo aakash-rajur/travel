@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import App from './components/App';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -8,5 +9,9 @@ import {source} from './utils/dataSource';
 
 preload(...source.map(({background}) => background));
 
-ReactDOM.render(<App source={source}/>, document.getElementById('root'));
+ReactDOM.render(
+	<Router>
+		<App source={source}/>
+	</Router>,
+	document.getElementById('root'));
 registerServiceWorker();
